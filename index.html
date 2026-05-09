@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 4 � Form Design &amp; Validation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="page__header">
+        <h1>Registration</h1>
+        <p class="page__lede">
+          DecodeLabs � Form design and validation (custom JavaScript, regex, ARIA).
+        </p>
+      </header>
+
+      <form
+        id="registration-form"
+        class="form"
+        novalidate
+        aria-describedby="form-status"
+      >
+        <div class="form__field" data-field="fullName">
+          <label class="form__label" for="fullName">Full name</label>
+          <div class="form__control">
+            <input
+              id="fullName"
+              name="fullName"
+              type="text"
+              autocomplete="name"
+              aria-required="true"
+              aria-invalid="false"
+              aria-describedby="fullName-error"
+            />
+            <span class="form__indicator" data-indicator aria-hidden="true"></span>
+          </div>
+          <span id="fullName-error" class="form__error" role="status"></span>
+        </div>
+
+        <div class="form__field" data-field="email">
+          <label class="form__label" for="email">Email</label>
+          <div class="form__control">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              aria-required="true"
+              aria-invalid="false"
+              aria-describedby="email-error"
+            />
+            <span class="form__indicator" data-indicator aria-hidden="true"></span>
+          </div>
+          <span id="email-error" class="form__error" role="status"></span>
+        </div>
+
+        <div class="form__field" data-field="password">
+          <label class="form__label" for="password">Password</label>
+          <div class="form__control form__control--password">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              aria-required="true"
+              aria-invalid="false"
+              aria-describedby="password-error password-hint password-strength"
+            />
+            <button type="button" class="form__toggle-password" aria-label="Toggle password visibility">
+              <span class="toggle-icon">👁️</span>
+            </button>
+            <span class="form__indicator" data-indicator aria-hidden="true"></span>
+          </div>
+          <div id="password-strength" class="password-strength" aria-live="polite">
+            <div class="password-strength__bar">
+              <div class="password-strength__fill" data-strength="0"></div>
+            </div>
+            <span class="password-strength__text">Password strength: <strong>None</strong></span>
+          </div>
+          <p id="password-hint" class="form__hint">
+            At least 8 characters, with uppercase, lowercase, number, and one of
+            <span class="form__mono"># ? ! @ $ % ^ &amp; * -</span>.
+          </p>
+          <span id="password-error" class="form__error" role="status"></span>
+        </div>
+
+        <div class="form__field" data-field="confirmPassword">
+          <label class="form__label" for="confirmPassword">Confirm password</label>
+          <div class="form__control form__control--password">
+            <input
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              autocomplete="new-password"
+              aria-required="true"
+              aria-invalid="false"
+              aria-describedby="confirmPassword-error"
+            />
+            <button type="button" class="form__toggle-password" aria-label="Toggle password visibility">
+              <span class="toggle-icon">👁️</span>
+            </button>
+            <span class="form__indicator" data-indicator aria-hidden="true"></span>
+          </div>
+          <span id="confirmPassword-error" class="form__error" role="status"></span>
+        </div>
+
+        <div class="form__field form__field--checkbox" data-field="terms">
+          <div class="form__checkbox-row">
+            <input
+              id="terms"
+              name="terms"
+              type="checkbox"
+              aria-required="true"
+              aria-invalid="false"
+              aria-describedby="terms-error"
+            />
+            <label class="form__label form__label--inline" for="terms">
+              I agree to the terms
+            </label>
+          </div>
+          <span id="terms-error" class="form__error" role="status"></span>
+        </div>
+
+        <div class="form__actions">
+          <button type="submit" class="button button--primary">
+            <span class="button__text">Submit Registration</span>
+            <span class="button__loader" hidden>
+              <span class="spinner"></span>
+              Processing...
+            </span>
+          </button>
+        </div>
+      </form>
+
+      <section id="form-status" class="status" aria-live="polite" aria-atomic="true"></section>
+
+      <section id="result-panel" class="result" hidden>
+        <h2 class="result__title">Submission result</h2>
+        <pre id="result-json" class="result__json" tabindex="0"></pre>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
