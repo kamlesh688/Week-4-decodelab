@@ -114,9 +114,9 @@ Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
 
 ## 👨‍💻 Author
 
-**[Your Name]**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+**[kamlesh kumar]**
+-
+  
 
 ## 📝 License
 
